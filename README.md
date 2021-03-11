@@ -5,9 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/asdh/imepay/Check%20&%20fix%20styling?label=code%20style)](https://github.com/asdh/imepay/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/asdh/imepay.svg?style=flat-square)](https://packagist.org/packages/asdh/imepay)
 
-
 A very small package to inetgrate IME Pay in your laravel project.
-
 
 ## Installation
 
@@ -18,6 +16,7 @@ composer require asdh/imepay
 ```
 
 You can publish the config file with:
+
 ```bash
 php artisan vendor:publish --provider="Asdh\ImePay\ImePayServiceProvider" --tag="imepay-config"
 ```
@@ -34,7 +33,7 @@ return [
     'password' => env('IME_PAY_PASSWORD'),
     /**
      * The payment url
-     * 
+     *
      * E.g. https://stg.imepay.com.np:1234
      */
     'base_url' => env('IME_PAY_BASE_URL'),
@@ -43,7 +42,10 @@ return [
 
 ## Usage
 
+### Getting token for payment
+
 To get the token before initiating the payment:
+
 ```php
 $imepay = new Asdh\ImePay();
 
@@ -59,13 +61,53 @@ There are also other methods in the above `$response` instance. All these method
 
 ```php
 $response->responseCode();
+$response->responseDescription();
+$response->refId();
 $response->tokenId();
 $response->amount();
-$response->refId();
-$response->responseDescription();
 ```
 
 To get the raw response from IME Pay:
+
+```php
+$response->raw();
+```
+
+Also, if the credentials you provided was not correct, it will throw `ImePayException`. You can catch this exception and perform your action.
+
+### Verifying the payment
+
+When a user pays using IME Pay in your website, IME Pay will redirect to a success url that you have to provide. In that url they will send a post request with some parameters.
+
+You can verify if it is valid like shown in the below code.
+
+First of all in your controller do this:
+
+```php
+$imepay = new Asdh\ImePay();
+
+$response = $imepay->verify($request->all());
+
+if ($response->isVerified()) {
+    // do your stuffs...
+}
+```
+
+There is also `$response->isNotVerified()` method which could be useful. If the response is not verified, you can get the message using `$response->responseDescription()`.
+
+There are also other methods in the above `$response` instance. All these methods represent the response from the IME Pay itself.
+
+```php
+$response->responseCode();
+$response->responseDescription();
+$response->refId();
+$response->msisdn(); // phone number of paying user
+$response->tokenId();
+$response->transactionId();
+```
+
+To get the raw response from IME Pay:
+
 ```php
 $response->raw();
 ```
@@ -75,7 +117,6 @@ $response->raw();
 ```bash
 composer test
 ```
-
 
 ## Contributing
 
@@ -87,8 +128,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Ashish Dhamala](https://github.com/AshishDhamala)
-- [All Contributors](../../contributors)
+-   [Ashish Dhamala](https://github.com/AshishDhamala)
+-   [All Contributors](../../contributors)
 
 ## License
 
