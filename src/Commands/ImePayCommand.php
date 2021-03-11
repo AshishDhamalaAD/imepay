@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Asdh\ImePay\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class ImePayCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'imepay';
 
     public $description = 'My command';
 

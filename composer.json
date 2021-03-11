@@ -1,39 +1,39 @@
 {
-    "name": ":vendor_name/:package_name",
-    "description": ":package_description",
+    "name": "asdh/imepay",
+    "description": "IME Pay payment validation package",
     "keywords": [
-        ":vendor_name",
-        ":package_name"
+        "asdh",
+        "imepay"
     ],
-    "homepage": "https://github.com/:vendor_name/:package_name",
+    "homepage": "https://github.com/asdh/imepay",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Ashish Dhamala",
+            "email": "ashish.dhamala2015@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^7.4|^8.0",
         "spatie/laravel-package-tools": "^1.4.3",
-        "illuminate/contracts": "^8.0"
+        "illuminate/contracts": "^7.0|^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.13",
+        "orchestra/testbench": "^5.0|^6.0",
         "phpunit/phpunit": "^9.3",
         "spatie/laravel-ray": "^1.9",
         "vimeo/psalm": "^4.4"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Asdh\\ImePay\\": "src",
+            "Asdh\\ImePay\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Asdh\\ImePay\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,10 +47,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Asdh\\ImePay\\ImePayServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "ImePay": "Asdh\\ImePay\\ImePayFacade"
             }
         }
     },

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Asdh\ImePay\Tests;
 
 class ExampleTest extends TestCase
 {
