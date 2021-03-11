@@ -4,7 +4,6 @@ namespace Asdh\ImePay;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Asdh\ImePay\Commands\ImePayCommand;
 
 class ImePayServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +16,6 @@ class ImePayServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('imepay')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_imepay_table')
-            ->hasCommand(ImePayCommand::class);
+            ->hasConfigFile();
     }
 }
