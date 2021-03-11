@@ -49,10 +49,7 @@
         "laravel": {
             "providers": [
                 "Asdh\\ImePay\\ImePayServiceProvider"
-            ],
-            "aliases": {
-                "ImePay": "Asdh\\ImePay\\ImePayFacade"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
