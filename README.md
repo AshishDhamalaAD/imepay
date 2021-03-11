@@ -6,15 +6,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/asdh/imepay.svg?style=flat-square)](https://packagist.org/packages/asdh/imepay)
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+A very small package to inetgrate IME Pay in your laravel project.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-imepay-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-imepay-laravel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -22,13 +15,6 @@ You can install the package via composer:
 
 ```bash
 composer require asdh/imepay
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Asdh\ImePay\ImePayServiceProvider" --tag="imepay-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -40,14 +26,48 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'merchant_number' => env('IME_PAY_MERCHANT_NUMBER'),
+    'merchant_name' => env('IME_PAY_MERCHANT_NAME'),
+    'merchant_code' => env('IME_PAY_MERCHANT_CODE'),
+    'merchant_module' => env('IME_PAY_MERCHANT_MODULE'),
+    'username' => env('IME_PAY_USERNAME'),
+    'password' => env('IME_PAY_PASSWORD'),
+    /**
+     * The payment url
+     * 
+     * E.g. https://stg.imepay.com.np:1234
+     */
+    'base_url' => env('IME_PAY_BASE_URL'),
 ];
 ```
 
 ## Usage
 
+To get the token before initiating the payment:
 ```php
 $imepay = new Asdh\ImePay();
-echo $imepay->echoPhrase('Hello, Asdh!');
+
+$refId = Str::uuid();
+$amount = 100;
+
+$response = $imepay->getToken($refId, $amount);
+
+$token = $response->tokenId();
+```
+
+There are also other methods in the above `$response` instance. All these methods represent the response from the IME Pay itself.
+
+```php
+$response->responseCode();
+$response->tokenId();
+$response->amount();
+$response->refId();
+$response->responseDescription();
+```
+
+To get the raw response from IME Pay:
+```php
+$response->raw();
 ```
 
 ## Testing
@@ -56,9 +76,6 @@ echo $imepay->echoPhrase('Hello, Asdh!');
 composer test
 ```
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
