@@ -2,8 +2,8 @@
 
 namespace Asdh\ImePay;
 
-use Asdh\ImePay\Verification\ImePayVerifyRequestData;
 use Asdh\ImePay\Verification\ImePayVerify;
+use Asdh\ImePay\Verification\ImePayVerifyRequestData;
 use Asdh\ImePay\Verification\ImePayVerifyResponse;
 
 class ImePay
