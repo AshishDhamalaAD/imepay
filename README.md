@@ -52,7 +52,9 @@ return [
 To get the token before initiating the payment:
 
 ```php
-$imepay = new Asdh\ImePay();
+use Asdh\ImePay\ImePay;
+
+$imepay = new ImePay();
 
 // refId can be any unique id or the order id through which you can get all the details of the order/product that the user is buying
 $refId = Str::uuid();
@@ -90,7 +92,9 @@ You can verify if it is valid like shown in the below code.
 First of all in your controller do this:
 
 ```php
-$imepay = new Asdh\ImePay();
+use Asdh\ImePay\ImePay;
+
+$imepay = new ImePay();
 
 $response = $imepay->verify($request->all());
 
