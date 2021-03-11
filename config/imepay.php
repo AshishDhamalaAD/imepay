@@ -12,5 +12,5 @@ return [
      * 
      * E.g. https://stg.imepay.com.np:1234
      */
-    'payment_url' => env('IME_PAY_PAYMENT_URL'),
+    'base_url' => env('IME_PAY_BASE_URL'),
 ];
