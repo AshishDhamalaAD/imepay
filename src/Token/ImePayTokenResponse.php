@@ -1,6 +1,6 @@
 <?php
 
-namespace Asdh\ImePay;
+namespace Asdh\ImePay\Token;
 
 class ImePayTokenResponse
 {

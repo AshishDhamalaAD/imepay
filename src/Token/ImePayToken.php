@@ -1,8 +1,9 @@
 <?php
 
-namespace Asdh\ImePay;
+namespace Asdh\ImePay\Token;
 
 use Asdh\ImePay\Exceptions\ImePayException;
+use Asdh\ImePay\ImePayErrorMessage;
 use Exception;
 use Illuminate\Support\Facades\Http;
 
