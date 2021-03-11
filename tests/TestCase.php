@@ -2,9 +2,9 @@
 
 namespace Asdh\ImePay\Tests;
 
+use Asdh\ImePay\ImePayServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Asdh\ImePay\ImePayServiceProvider;
 
 class TestCase extends Orchestra
 {

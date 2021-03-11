@@ -2,9 +2,9 @@
 
 namespace Asdh\ImePay;
 
+use Asdh\ImePay\Commands\ImePayCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Asdh\ImePay\Commands\ImePayCommand;
 
 class ImePayServiceProvider extends PackageServiceProvider
 {
