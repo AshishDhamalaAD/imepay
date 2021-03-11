@@ -49,6 +49,7 @@ To get the token before initiating the payment:
 ```php
 $imepay = new Asdh\ImePay();
 
+// refId can be any unique id or the order id through which you can get all the details of the order/product that the user is buying
 $refId = Str::uuid();
 $amount = 100;
 
