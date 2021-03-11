@@ -21,12 +21,8 @@ class ImePayErrorMessage
         switch ($this->exception->getCode()) {
             case Response::HTTP_UNAUTHORIZED:
                 return self::UNAUTHORIZED;
-
-                break;
             default:
                 return $this->exception->getMessage();
-
-                break;
         }
     }
 }

@@ -37,7 +37,7 @@ class ImePayToken
                 ])
                 ->throw();
         } catch (Exception $exception) {
-            throw new ImePayException((new ImePayErrorMessage($exception))->get(), $exception->getCode());
+            throw new ImePayException((new ImePayErrorMessage($exception))->get(), (int) $exception->getCode());
         }
 
         return new ImePayTokenResponse($response->json());
