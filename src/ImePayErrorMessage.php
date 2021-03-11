@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ImePayErrorMessage
 {
     public const UNAUTHORIZED = 'Unauthorized. Please make sure that all the credentials are correct.';
+    public const INTERNAL_SERVER_ERROR = '500: IME Pay Internal Server Error.';
 
     private $exception;
 
@@ -21,6 +22,8 @@ class ImePayErrorMessage
         switch ($this->exception->getCode()) {
             case Response::HTTP_UNAUTHORIZED:
                 return self::UNAUTHORIZED;
+            case Response::HTTP_INTERNAL_SERVER_ERROR:
+                return self::INTERNAL_SERVER_ERROR;
             default:
                 return $this->exception->getMessage();
         }
