@@ -3,7 +3,9 @@
     "description": "IME Pay payment validation package",
     "keywords": [
         "asdh",
-        "imepay"
+        "imepay",
+        "laravel imepay",
+        "imepay laravel"
     ],
     "homepage": "https://github.com/asdh/imepay",
     "license": "MIT",
