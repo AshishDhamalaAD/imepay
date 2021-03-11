@@ -53,6 +53,6 @@ class ImePayVerifyResponse
 
     public function isNotVerified(): bool
     {
-        return !$this->isVerified();
+        return ! $this->isVerified();
     }
 }

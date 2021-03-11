@@ -123,7 +123,7 @@ class ImePayVerifyTest extends TestCase
             "TranAmount" => "10.0000",
             "ResponseCode" => "0",
             "TransactionId" => "202103091150349847",
-            "ResponseDescription" => "Success"
+            "ResponseDescription" => "Success",
         ];
 
         Http::fakeSequence()
