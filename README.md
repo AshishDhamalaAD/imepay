@@ -7,6 +7,11 @@
 
 A very small package to inetgrate IME Pay in your laravel project.
 
+## Support me
+Buy me a coffee. :v:
+
+eSewa ID: 9840594104
+
 ## Installation
 
 You can install the package via composer:
