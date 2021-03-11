@@ -16,6 +16,9 @@ class ImePayTokenTest extends TestCase
         $refId = '3510967d-3a98-4b61-a74b-974c6e953991';
         $amount = number_format(100, 4, '.', '');
 
+        config()->set('imepay.username', 'apple');
+        config()->set('imepay.password', 'ball');
+
         Http::fakeSequence()->pushResponse(Http::response([
             'ResponseCode' => 0,
             'TokenId' => '202103111046564183',
@@ -49,7 +52,9 @@ class ImePayTokenTest extends TestCase
 
         $refId = '3510967d-3a98-4b61-a74b-974c6e953991';
         $price = number_format(100, 4, '.', '');
+
         config()->set('imepay.username', 'apple');
+        config()->set('imepay.password', 'ball');
 
         Http::fakeSequence()
             ->whenEmpty(function () {
