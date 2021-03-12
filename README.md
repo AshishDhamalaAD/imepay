@@ -47,6 +47,8 @@ return [
 
 ## Usage
 
+I have also made a laravel project where I have shown how to use this package with routes, controllers and views. [Click here to go to that repo](https://github.com/AshishDhamalaAD/imepay-laravel-usage).
+
 ### Getting token for payment
 
 To get the token before initiating the payment:
@@ -86,6 +88,8 @@ Also, if the credentials you provided was not correct, it will throw `ImePayExce
 ### Verifying the payment
 
 When a user pays using IME Pay in your website, IME Pay will redirect to a success url that you have to provide. In that url they will send a post request with some parameters.
+
+> Don't forget to add this route to the `$except` array of  `App\Http\Middleware\VerifyCsrfToken` class. Also, this url should not be under authentication. Otherwise, the request sent from IME pay will not reach your website.
 
 You can verify if it is valid like shown in the below code.
 
